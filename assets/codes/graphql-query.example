@@ -1,3 +1,7 @@
 {
-  user(id: "")
+  user(id: "chentsulin") {
+    name
+  }
 }
+
+

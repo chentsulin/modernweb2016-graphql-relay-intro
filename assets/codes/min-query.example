@@ -1,0 +1,10 @@
+fetch('/posts')
+.then(parseJSON)
+.then(post => Promise.all(
+  posts.map(post => fetch(post.href))
+))
+.then(parseJSON)
+.then(post => { ... });
+
+graphql.get(`query { posts { id, title, content } }`)
+.then(posts => { ...});

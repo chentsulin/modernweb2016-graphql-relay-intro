@@ -1,0 +1,43 @@
+/* Copy from https://facebook.github.io/relay/ */
+import {
+  GraphQLInt,
+  GraphQLList,
+  GraphQLObjectType,
+  GraphQLSchema,
+  GraphQLString,
+} from 'graphql';
+
+const STORE = {
+  teas: [
+    {name: 'Earl Grey Blue Star', steepingTime: 5},
+    {name: 'Milk Oolong', steepingTime: 3},
+    {name: 'Gunpowder Golden Temple', steepingTime: 3},
+  ],
+};
+
+var TeaType = new GraphQLObjectType({
+  name: 'Tea',
+  fields: () => ({
+    name: {type: GraphQLString},
+    steepingTime: {type: GraphQLInt},
+  }),
+});
+
+var StoreType = new GraphQLObjectType({
+  name: 'Store',
+  fields: () => ({
+    teas: {type: new GraphQLList(TeaType)},
+  }),
+});
+
+export default new GraphQLSchema({
+  query: new GraphQLObjectType({
+    name: 'Query',
+    fields: () => ({
+      store: {
+        type: StoreType,
+        resolve: () => STORE,
+      },
+    }),
+  }),
+});

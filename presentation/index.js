@@ -130,8 +130,10 @@ export default class Presentation extends React.Component {
             </Heading>
             <List>
               <Appear><ListItem>Nested releations</ListItem></Appear>
+              <Appear><ListItem>Not efficient with bad network</ListItem></Appear>
               <Appear><ListItem>Versioning</ListItem></Appear>
               <Appear><ListItem>Growing amount of api endpoints</ListItem></Appear>
+              <Appear><ListItem>Legacy endpoints and fields</ListItem></Appear>
             </List>
           </Slide>
 
@@ -149,6 +151,10 @@ export default class Presentation extends React.Component {
                     <Appear><ListItem>/users/:id</ListItem></Appear>
                     <Appear><ListItem>/comments/:id/replies</ListItem></Appear>
                     <Appear><ListItem>/comments/:id/likers</ListItem></Appear>
+                  </List>
+                  <Appear><Text>Or something like..</Text></Appear>
+                  <List>
+                    <Appear><ListItem>/post-with-comments-and-replies/:id</ListItem></Appear>
                   </List>
                 </div>
               </Fill>
@@ -175,27 +181,10 @@ export default class Presentation extends React.Component {
               <Appear><ListItem>From facebook mobile team (newsfeed)</ListItem></Appear>
               <Appear><ListItem>260 billion requests/day (2015)</ListItem></Appear>
               <Appear><ListItem>Used for 4 years</ListItem></Appear>
-              <Appear><ListItem>One schema for all data</ListItem></Appear>
+              <Appear><ListItem>One schema for all facebook data</ListItem></Appear>
             </List>
           </Slide>
 
-          <Slide transition={["zoom"]} bgColor="primary">
-            <Heading size={3} fit lineHeight={1} textColor="black">
-              <Text>GraphQL comes in</Text>
-            </Heading>
-          </Slide>
-
-          <CodeSlide
-            transition={[]}
-            lang="js"
-            code={require("raw!../assets/codes/new-project.example")}
-            ranges={[
-              { loc: [0, 9], title: "Create a new Project" },
-              { loc: [0, 2], note: "Create a react-native project using cli." },
-              { loc: [3, 5], note: "Run on iOS." },
-              { loc: [6, 9], note: "Run on Android." }
-            ]}
-          />
           <Slide transition={["zoom"]} bgColor="primary">
             <Text textSize="2em" margin="25px">GraphQL Query</Text>
             <Layout>
@@ -226,7 +215,7 @@ export default class Presentation extends React.Component {
 
           <Slide transition={["zoom"]} bgColor="primary">
             <Heading size={3} fit lineHeight={1} textColor="black">
-              <Text>Just like a json without value!</Text>
+              <Text>Just like json without values!</Text>
             </Heading>
           </Slide>
 
@@ -239,8 +228,54 @@ export default class Presentation extends React.Component {
 
           <Slide transition={["zoom"]} bgColor="primary">
             <Heading size={3} fit lineHeight={1} textColor="black">
+              <Text>Only fetch what we need</Text>
+            </Heading>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="primary">
+            <Heading size={3} fit lineHeight={1} textColor="black">
               <Text>Type System</Text>
             </Heading>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="primary">
+            <Heading size={5} lineHeight={1} textColor="black">
+              <Text>Schema</Text>
+            </Heading>
+            <CodePane
+              lang="jsx"
+              source={require("raw!../assets/codes/graphql-schema.example")}
+              margin="20px auto"
+              textSize="0.8em"
+            />
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="primary">
+            <Heading size={5} lineHeight={1} textColor="black">
+              <Text>Types</Text>
+            </Heading>
+            <List>
+              <ListItem>Scalar(Int, Float, String, Boolean, ID)</ListItem>
+              <ListItem>Object</ListItem>
+              <ListItem>Interface</ListItem>
+              <ListItem>Union</ListItem>
+              <ListItem>Enum</ListItem>
+              <ListItem>InputObject</ListItem>
+              <ListItem>List</ListItem>
+              <ListItem>NonNull</ListItem>
+            </List>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="primary">
+            <Heading size={5} lineHeight={1} textColor="black">
+              <Text>Future Ecosystem</Text>
+            </Heading>
+            <List>
+              <Appear><ListItem>documentation tools</ListItem></Appear>
+              <Appear><ListItem>editor plugins</ListItem></Appear>
+              <Appear><ListItem>testing tools</ListItem></Appear>
+              <Appear><ListItem>linter</ListItem></Appear>
+            </List>
           </Slide>
 
 
@@ -249,6 +284,127 @@ export default class Presentation extends React.Component {
               <Text>GraphiQL</Text>
             </Heading>
             <Image src={images.graphiql.replace("/", "")} margin="0px auto 40px" width="1024px"/>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="primary">
+            <Heading size={3} fit lineHeight={1} textColor="black">
+              <Text>Relay</Text>
+            </Heading>
+          </Slide>
+
+          <CodeSlide
+            transition={[]}
+            lang="js"
+            code={require("raw!../assets/codes/relay-simple-schema.example")}
+            ranges={[
+              { loc: [32, 43], title: "GraphQL Schema" },
+              { loc: [25, 31], note: "Store Type" },
+              { loc: [17, 24], note: "Tea Type" },
+              { loc: [9, 16], note: "Store data" },
+              { loc: [35, 41], note: "Store Resolving function" }
+            ]}
+          />
+
+          <CodeSlide
+            transition={[]}
+            lang="js"
+            code={require("raw!../assets/codes/relay-simple.example")}
+            ranges={[
+              { loc: [0, 1], title: "Relay Frontend" },
+              { loc: [0, 2], note: "Plain React Component" },
+              { loc: [3, 5], note: "Co-locate data requirement with Component" },
+              { loc: [6, 9], note: "Run on Android." }
+            ]}
+          />
+
+          <Slide transition={["zoom"]} bgColor="primary">
+            <Heading size={5} lineHeight={1} textColor="black">
+              <Text>Co-locate All the things with Component</Text>
+            </Heading>
+            <List>
+              <Appear><ListItem>JavaScript</ListItem></Appear>
+              <Appear><ListItem>HTML (jsx)</ListItem></Appear>
+              <Appear><ListItem>CSS (CSS in JS, CSS Modules..)</ListItem></Appear>
+              <Appear><ListItem>Data Requirement (Relay)</ListItem></Appear>
+              <Appear><ListItem>Tests (__tests__)</ListItem></Appear>
+            </List>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="primary">
+            <Heading size={5} lineHeight={1} textColor="black">
+              <Text>Data Masking</Text>
+            </Heading>
+            <List>
+            </List>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="primary">
+            <Heading size={5} lineHeight={1} textColor="black">
+              <Text>Minimize query</Text>
+            </Heading>
+            <Layout>
+              <div style={{ width: "450px", margin: "0 20px" }}>
+                <CodePane
+                  lang="jsx"
+                  source={require("raw!../assets/codes/min-query.example")}
+                  margin="20px auto"
+                  textSize="0.6em"
+                />
+              </div>
+              <Fill>
+                <List>
+                  <ListItem>Avoid N+1 Query</ListItem>
+                  <ListItem>Single Network Request</ListItem>
+                </List>
+              </Fill>
+            </Layout>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="primary">
+            <Heading size={5} lineHeight={1} textColor="black">
+              <Text>Cache</Text>
+            </Heading>
+            <Layout>
+              <div style={{ width: "450px", margin: "0 20px" }}>
+                <CodePane
+                  lang="jsx"
+                  source={require("raw!../assets/codes/cache.example")}
+                  margin="20px auto"
+                  textSize="0.6em"
+                />
+              </div>
+              <Fill>
+                <List>
+                  <ListItem>Normalize</ListItem>
+                  <ListItem>Immutable</ListItem>
+                  <ListItem>Views subscribe Record IDs</ListItem>
+                </List>
+              </Fill>
+            </Layout>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="primary">
+            <Heading size={5} lineHeight={1} textColor="black">
+              <Text>Default Network Layer</Text>
+            </Heading>
+            <List>
+              <Appear><ListItem>Fail requests after a 15 second timeout</ListItem></Appear>
+              <Appear><ListItem>failed requests are automatically retried twice</ListItem></Appear>
+            </List>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="primary">
+            <Heading size={5} lineHeight={1} textColor="black">
+              <Text>Optiomistic UI</Text>
+            </Heading>
+            <List>
+            </List>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="primary">
+            <Heading size={5} lineHeight={1} textColor="black">
+              <Text>Works on React Native!</Text>
+            </Heading>
           </Slide>
 
 
