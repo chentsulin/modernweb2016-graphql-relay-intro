@@ -1,0 +1,21 @@
+{
+  post(id: 1234) {
+    content, photo, createdAt,
+    postedBy { name, profilePic }
+    likers {
+      edges {
+        node { ...user }
+      }
+    }
+    comments {
+      edges {
+        node {
+          text
+          postedBy { ...user }
+          replies { ... }
+          createdAt
+        }
+      }
+    }
+  }
+}

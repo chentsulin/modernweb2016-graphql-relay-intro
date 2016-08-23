@@ -36,7 +36,9 @@ const images = {
   ctlin: require("../assets/ctlin.jpg"),
   logos: require("../assets/logos.png"),
   graphiql: require("../assets/graphiql.png"),
-  fake: require("../assets/fake.png")
+  fake: require("../assets/fake.png"),
+  container: require("../assets/container.png"),
+  masking: require("../assets/masking.png")
 };
 
 preloader(images);
@@ -174,6 +176,22 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide transition={["zoom"]} bgColor="primary">
+            <Layout>
+              <Fit>
+                <Image src={images.fake.replace("/", "")} margin="0px auto" height="90vh" />
+              </Fit>
+              <Fill>
+                <CodePane
+                  lang="jsx"
+                  source={require("raw!../assets/codes/fake.example")}
+                  margin="0 20px 0"
+                  textSize="0.6em"
+                />
+              </Fill>
+            </Layout>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="primary">
             <Heading size={5} lineHeight={1} textColor="black">
               <Text>GraphQL</Text>
             </Heading>
@@ -283,8 +301,15 @@ export default class Presentation extends React.Component {
             <Heading size={6} lineHeight={1} textColor="black">
               <Text>GraphiQL</Text>
             </Heading>
-            <Image src={images.graphiql.replace("/", "")} margin="0px auto 40px" width="1024px"/>
+            <Image src={images.graphiql.replace("/", "")} margin="0px auto 40px" />
           </Slide>
+
+          <Slide transition={["zoom"]} bgColor="primary">
+            <Heading size={6} lineHeight={1} textColor="black">
+              <Link target="_blank" href="https://www.graphqlhub.com/playground?query=%7B%0A%20%20graphQLHub%0A%20%20github%20%7B%0A%20%20%20%20user(username%3A%20%22chentsulin%22)%20%7B%0A%20%20%20%20%20%20login%0A%20%20%20%20%20%20id%0A%20%20%20%20%20%20avatar_url%0A%20%20%20%20%7D%0A%20%20%20%20repo(ownerUsername%3A%20%22chentsulin%22%2C%20name%3A%20%22koa-graphql%22)%20%7B%0A%20%20%20%20%20%20id%0A%20%20%20%20%20%20name%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20issues(limit%3A%2010)%20%7B%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20state%0A%20%20%20%20%20%20%20%20title%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20branches(limit%3A%202)%20%7B%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20lastCommit%20%7B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20commits(limit%3A%20100)%20%7B%0A%20%20%20%20%20%20%20%20...commit%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A%0Afragment%20status%20on%20GithubStatus%20%7B%0A%20%20state%0A%20%20description%0A%20%20target_url%0A%20%20context%0A%20%20updated_at%0A%7D%0A%0Afragment%20commit%20on%20GithubCommit%20%7B%0A%20%20sha%0A%20%20message%0A%20%20status%20%7B%0A%20%20%20%20...status%0A%20%20%7D%0A%20%20author%20%7B%0A%20%20%20%20...%20on%20GithubUser%20%7B%0A%20%20%20%20%20%20login%0A%20%20%20%20%20%20id%0A%20%20%20%20%7D%0A%20%20%20%20...%20on%20GithubCommitAuthor%20%7B%0A%20%20%20%20%20%20email%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D"><Text>Demo</Text></Link>
+            </Heading>
+          </Slide>
+
 
           <Slide transition={["zoom"]} bgColor="primary">
             <Heading size={3} fit lineHeight={1} textColor="black">
@@ -292,30 +317,12 @@ export default class Presentation extends React.Component {
             </Heading>
           </Slide>
 
-          <CodeSlide
-            transition={[]}
-            lang="js"
-            code={require("raw!../assets/codes/relay-simple-schema.example")}
-            ranges={[
-              { loc: [32, 43], title: "GraphQL Schema" },
-              { loc: [25, 31], note: "Store Type" },
-              { loc: [17, 24], note: "Tea Type" },
-              { loc: [9, 16], note: "Store data" },
-              { loc: [35, 41], note: "Store Resolving function" }
-            ]}
-          />
-
-          <CodeSlide
-            transition={[]}
-            lang="js"
-            code={require("raw!../assets/codes/relay-simple.example")}
-            ranges={[
-              { loc: [0, 1], title: "Relay Frontend" },
-              { loc: [0, 2], note: "Plain React Component" },
-              { loc: [3, 5], note: "Co-locate data requirement with Component" },
-              { loc: [6, 9], note: "Run on Android." }
-            ]}
-          />
+          <Slide transition={["zoom"]} bgColor="primary">
+            <Heading size={6} lineHeight={1} textColor="black">
+              <Text>Container</Text>
+            </Heading>
+            <Image src={images.container.replace("/", "")} margin="0px auto 40px" width="800px" />
+          </Slide>
 
           <Slide transition={["zoom"]} bgColor="primary">
             <Heading size={5} lineHeight={1} textColor="black">
@@ -334,8 +341,7 @@ export default class Presentation extends React.Component {
             <Heading size={5} lineHeight={1} textColor="black">
               <Text>Data Masking</Text>
             </Heading>
-            <List>
-            </List>
+            <Image src={images.masking.replace("/", "")} margin="0px auto 40px" width="800px" />
           </Slide>
 
           <Slide transition={["zoom"]} bgColor="primary">
@@ -343,7 +349,7 @@ export default class Presentation extends React.Component {
               <Text>Minimize query</Text>
             </Heading>
             <Layout>
-              <div style={{ width: "450px", margin: "0 20px" }}>
+              <div style={{ width: "480px", margin: "0 20px" }}>
                 <CodePane
                   lang="jsx"
                   source={require("raw!../assets/codes/min-query.example")}
@@ -395,18 +401,43 @@ export default class Presentation extends React.Component {
 
           <Slide transition={["zoom"]} bgColor="primary">
             <Heading size={5} lineHeight={1} textColor="black">
-              <Text>Optiomistic UI</Text>
-            </Heading>
-            <List>
-            </List>
-          </Slide>
-
-          <Slide transition={["zoom"]} bgColor="primary">
-            <Heading size={5} lineHeight={1} textColor="black">
               <Text>Works on React Native!</Text>
             </Heading>
           </Slide>
 
+          <CodeSlide
+            transition={[]}
+            lang="js"
+            code={require("raw!../assets/codes/relay-simple-schema.example")}
+            ranges={[
+              { loc: [32, 43], title: "GraphQL Schema" },
+              { loc: [25, 31], note: "Store Type" },
+              { loc: [17, 24], note: "Tea Type" },
+              { loc: [9, 16], note: "Store data" },
+              { loc: [35, 41], note: "Store Resolving function" }
+            ]}
+          />
+
+          <CodeSlide
+            transition={[]}
+            lang="js"
+            code={require("raw!../assets/codes/relay-simple.example")}
+            ranges={[
+              { loc: [0, 1], title: "Relay Frontend" },
+              { loc: [2, 12], note: "Plain Tea React Component" },
+              { loc: [12, 22], note: "Data requirement for Tea Component" },
+              { loc: [23, 32], note: "Plain TeaStore React Component" },
+              { loc: [32, 41], note: "Data requirement for TeaStore Component" },
+              { loc: [42, 52], note: "Top Level Query Root" },
+              { loc: [54, 60], note: "Render RootContainer" }
+            ]}
+          />
+
+          <Slide transition={["zoom"]} bgColor="primary">
+            <Heading size={6} lineHeight={1} textColor="black">
+              <Link target="_blank" href="http://facebook.github.io/relay/prototyping/playground.html#/">Demo</Link>
+            </Heading>
+          </Slide>
 
           <Slide transition={["zoom"]} bgColor="primary">
             <Heading size={3} lineHeight={1} textColor="black">
@@ -415,6 +446,9 @@ export default class Presentation extends React.Component {
             <List>
               <ListItem>
                 <Link target="_blank" href="https://github.com/chentsulin/awesome-graphql">Awesome GraphQL</Link>
+              </ListItem>
+              <ListItem>
+                <Link target="_blank" href="https://learngraphql.com/">Let's Learn GraphQL</Link>
               </ListItem>
               <ListItem>
                 <Link target="_blank" href="https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png">GraphQL Cheat Sheet</Link>
@@ -427,6 +461,7 @@ export default class Presentation extends React.Component {
               </ListItem>
             </List>
           </Slide>
+
           <Slide transition={["slide", "spin"]} bgColor="primary">
             <Heading caps size={1} textColor="tertiary">
               End
