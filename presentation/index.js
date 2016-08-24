@@ -44,8 +44,13 @@ const images = {
   graphiql: require("../assets/graphiql.png"),
   fake: require("../assets/fake.png"),
   container: require("../assets/container.png"),
+  datar: require("../assets/datar.png"),
+  fragment: require("../assets/fragment.png"),
+  request: require("../assets/request.png"),
   masking: require("../assets/masking.png"),
-  rn: require("../assets/react-native.png")
+  rn: require("../assets/react-native.png"),
+  eco: require("../assets/eco.png"),
+  curve: require("../assets/curve.png")
 };
 
 preloader(images);
@@ -343,7 +348,14 @@ export default class Presentation extends React.Component {
 
           <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
             <Heading size={1} lineHeight={1.3} textColor="white">
-              Future Ecosystem
+              Ecosystem
+            </Heading>
+            <Image src={images.eco.replace("/", "")} margin="0px auto 40px" />
+          </Slide>
+
+          <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
+            <Heading size={1} lineHeight={1.3} textColor="white">
+              Ecosystem
             </Heading>
             <List>
               <MyListItem>Documentation Tools</MyListItem>
@@ -352,7 +364,6 @@ export default class Presentation extends React.Component {
               <MyListItem>Linter</MyListItem>
             </List>
           </Slide>
-
 
           <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
             <Image src={images.relay.replace("/", "")} width="350px" margin="0 auto" />
@@ -414,6 +425,27 @@ export default class Presentation extends React.Component {
               { loc: [54, 60], note: "Render RootContainer" }
             ]}
           />
+
+          <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
+            <Heading size={5} lineHeight={1.3} textColor="white">
+              Data Requirement
+            </Heading>
+            <Image src={images.datar.replace("/", "")} margin="0px auto 40px" width="800px" />
+          </Slide>
+
+          <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
+            <Heading size={5} lineHeight={1.3} textColor="white">
+              Fragment Composition
+            </Heading>
+            <Image src={images.fragment.replace("/", "")} margin="0px auto 40px" width="800px" />
+          </Slide>
+
+          <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
+            <Heading size={5} lineHeight={1.3} textColor="white">
+              Request
+            </Heading>
+            <Image src={images.request.replace("/", "")} margin="0px auto 40px" width="800px" />
+          </Slide>
 
           <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
             <Heading size={5} lineHeight={1.3} textColor="white">
