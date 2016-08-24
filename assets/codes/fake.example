@@ -12,7 +12,7 @@
         node {
           text
           postedBy { ...user }
-          replies { ... }
+          replies { ...reply }
           createdAt
         }
       }
