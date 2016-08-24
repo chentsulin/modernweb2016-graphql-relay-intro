@@ -147,12 +147,12 @@ export default class Presentation extends React.Component {
 
           <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
             <Heading size={1} lineHeight={1.3} textColor="white">
-              For Example
+              REST Example
             </Heading>
             <List>
               <MyListItem>GET /posts</MyListItem>
               <MyListItem>POST /posts</MyListItem>
-              <MyListItem>POST /posts/:id</MyListItem>
+              <MyListItem>GET /posts/:id</MyListItem>
               <MyListItem>PUT /posts/:id</MyListItem>
               <MyListItem>DELETE /posts/:id</MyListItem>
             </List>
@@ -186,13 +186,20 @@ export default class Presentation extends React.Component {
                     <MyListItem>/comments/:id/replies</MyListItem>
                     <MyListItem>/comments/:id/likers</MyListItem>
                   </List>
-                  <Appear><Text textColor="white">Or something like..</Text></Appear>
-                  <List>
-                    <Appear><MyListItem>/post-with-comments-and-replies-and-likers/:id</MyListItem></Appear>
-                  </List>
                 </div>
               </Fill>
             </Layout>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
+            <Heading size={1} lineHeight={1.3} textColor="white">
+              Or something like..
+            </Heading>
+            <List>
+              <Appear><MyListItem>/post-with-comments</MyListItem></Appear>
+              <Appear><MyListItem>/post-with-comments-and-replies</MyListItem></Appear>
+              <Appear><MyListItem>/post-with-comments-and-replies-and-likers</MyListItem></Appear>
+            </List>
           </Slide>
 
           <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
