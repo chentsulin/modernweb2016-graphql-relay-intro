@@ -15,7 +15,8 @@ import {
   List,
   Slide,
   Spectacle,
-  Text
+  Text,
+  S
 } from "spectacle";
 
 import CodeSlide from "spectacle-code-slide";
@@ -43,7 +44,8 @@ const images = {
   graphiql: require("../assets/graphiql.png"),
   fake: require("../assets/fake.png"),
   container: require("../assets/container.png"),
-  masking: require("../assets/masking.png")
+  masking: require("../assets/masking.png"),
+  rn: require("../assets/react-native.png")
 };
 
 preloader(images);
@@ -138,9 +140,9 @@ export default class Presentation extends React.Component {
               REST
             </Heading>
             <List>
-              <MyListItem>Method: GET, POST, PUT, DELETE</MyListItem>
-              <Appear><MyListItem>Path: /resources, /resources/:id</MyListItem></Appear>
-              <Appear><MyListItem>Status Code: 200, 400, 401, 403, 404...</MyListItem></Appear>
+              <MyListItem>Method: <S type="bold">GET</S>, <S type="bold">POST</S>, <S type="bold">PUT</S>, <S type="bold">DELETE</S></MyListItem>
+              <Appear><MyListItem>Path: <S type="bold">/resources</S>, <S type="bold">/resources/:id</S></MyListItem></Appear>
+              <Appear><MyListItem>Status Code: <S type="bold">200</S>, <S type="bold">400</S>, <S type="bold">401</S>, <S type="bold">403</S>, <S type="bold">404</S>...</MyListItem></Appear>
             </List>
           </Slide>
 
@@ -178,12 +180,12 @@ export default class Presentation extends React.Component {
               <Fill>
                 <div style={{ marginLeft: "30px" }}>
                   <List>
-                    <MyListItem>/posts/:id</MyListItem>
-                    <MyListItem>/posts/:id/comments</MyListItem>
-                    <MyListItem>/posts/:id/likers</MyListItem>
-                    <MyListItem>/users/:id</MyListItem>
-                    <MyListItem>/comments/:id/replies</MyListItem>
-                    <MyListItem>/comments/:id/likers</MyListItem>
+                  <MyListItem><S type="bold">/posts/:id</S></MyListItem>
+                  <MyListItem><S type="bold">/posts/:id/comments</S></MyListItem>
+                  <MyListItem><S type="bold">/posts/:id/likers</S></MyListItem>
+                  <MyListItem><S type="bold">/users/:id</S></MyListItem>
+                  <MyListItem><S type="bold">/comments/:id/replies</S></MyListItem>
+                  <MyListItem><S type="bold">/comments/:id/likers</S></MyListItem>
                   </List>
                 </div>
               </Fill>
@@ -195,9 +197,9 @@ export default class Presentation extends React.Component {
               Or something like..
             </Heading>
             <List>
-              <Appear><MyListItem>/post-with-comments</MyListItem></Appear>
-              <Appear><MyListItem>/post-with-comments-and-replies</MyListItem></Appear>
-              <Appear><MyListItem>/post-with-comments-and-replies-and-likers</MyListItem></Appear>
+              <Appear><MyListItem><S type="bold">/post-with-comments</S></MyListItem></Appear>
+              <Appear><MyListItem><S type="bold">/post-with-comments-and-replies</S></MyListItem></Appear>
+              <Appear><MyListItem><S type="bold">/post-with-comments-and-replies-and-likers</S></MyListItem></Appear>
             </List>
           </Slide>
 
@@ -208,7 +210,8 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
-            <Heading size={1} fit lineHeight={1.3} textColor="white">
+            <Image src={images.graphql.replace("/", "")} width="350px" margin="0 auto" />
+            <Heading size={2} fit lineHeight={1.3} textColor="white">
               GraphQL comes in
             </Heading>
           </Slide>
@@ -234,10 +237,10 @@ export default class Presentation extends React.Component {
               GraphQL
             </Heading>
             <List>
-              <MyListItem>From facebook mobile team (newsfeed)</MyListItem>
-              <MyListItem>260 billion requests/day (2015)</MyListItem>
-              <MyListItem>Used for 4 years</MyListItem>
-              <MyListItem>One schema for all facebook data</MyListItem>
+              <MyListItem>From facebook <S type="bold">mobile</S> team (newsfeed)</MyListItem>
+              <MyListItem><S type="bold">260 billion</S> requests / day (2015)</MyListItem>
+              <MyListItem>Used for <S type="bold">4</S> years</MyListItem>
+              <MyListItem><S type="bold">One</S> schema for all facebook data</MyListItem>
             </List>
           </Slide>
 
@@ -331,7 +334,9 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
-            <Heading size={1} lineHeight={1.3} textColor="white">
+            <Heading size={2} lineHeight={1.3} textColor="white">
+              <Link target="_blank" href="https://www.graphqlhub.com">GraphQLHub</Link>
+              <br />
               <Link target="_blank" href="https://www.graphqlhub.com/playground?query=%7B%0A%20%20graphQLHub%0A%20%20github%20%7B%0A%20%20%20%20user(username%3A%20%22chentsulin%22)%20%7B%0A%20%20%20%20%20%20login%0A%20%20%20%20%20%20id%0A%20%20%20%20%20%20avatar_url%0A%20%20%20%20%7D%0A%20%20%20%20repo(ownerUsername%3A%20%22chentsulin%22%2C%20name%3A%20%22koa-graphql%22)%20%7B%0A%20%20%20%20%20%20id%0A%20%20%20%20%20%20name%0A%20%20%20%20%20%20issues(limit%3A%203)%20%7B%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20state%0A%20%20%20%20%20%20%20%20title%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20branches(limit%3A%202)%20%7B%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20lastCommit%20%7B%0A%20%20%20%20%20%20%20%20%20%20...commit%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20commits(limit%3A%201)%20%7B%0A%20%20%20%20%20%20%20%20...commit%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A%0Afragment%20status%20on%20GithubStatus%20%7B%0A%20%20state%0A%20%20description%0A%20%20target_url%0A%20%20context%0A%20%20updated_at%0A%7D%0A%0Afragment%20commit%20on%20GithubCommit%20%7B%0A%20%20sha%0A%20%20message%0A%20%20status%20%7B%0A%20%20%20%20...status%0A%20%20%7D%0A%20%20author%20%7B%0A%20%20%20%20...%20on%20GithubUser%20%7B%0A%20%20%20%20%20%20login%0A%20%20%20%20%20%20id%0A%20%20%20%20%7D%0A%20%20%20%20...%20on%20GithubCommitAuthor%20%7B%0A%20%20%20%20%20%20email%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D">Demo</Link>
             </Heading>
           </Slide>
@@ -350,6 +355,7 @@ export default class Presentation extends React.Component {
 
 
           <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
+            <Image src={images.relay.replace("/", "")} width="350px" margin="0 auto" />
             <Heading size={1} lineHeight={1.3} textColor="white">
               Relay
             </Heading>
@@ -376,6 +382,40 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
+            <Heading size={2} fit lineHeight={1.3} textColor="white">
+              Walkthrough Simple Example
+            </Heading>
+          </Slide>
+
+          <CodeSlide
+            transition={[]}
+            lang="js"
+            code={require("raw!../assets/codes/relay-simple-schema.example")}
+            ranges={[
+              { loc: [32, 43], title: "GraphQL Schema" },
+              { loc: [25, 31], note: "Store Type" },
+              { loc: [17, 24], note: "Tea Type" },
+              { loc: [9, 16], note: "Store data" },
+              { loc: [35, 41], note: "Store Resolving function" }
+            ]}
+          />
+
+          <CodeSlide
+            transition={[]}
+            lang="js"
+            code={require("raw!../assets/codes/relay-simple.example")}
+            ranges={[
+              { loc: [0, 1], title: "Relay Frontend" },
+              { loc: [2, 12], note: "Plain Tea React Component" },
+              { loc: [12, 22], note: "Data requirement for Tea Component" },
+              { loc: [23, 32], note: "Plain TeaStore React Component" },
+              { loc: [32, 41], note: "Data requirement for TeaStore Component" },
+              { loc: [42, 52], note: "Top Level Query Root" },
+              { loc: [54, 60], note: "Render RootContainer" }
+            ]}
+          />
+
+          <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
             <Heading size={5} lineHeight={1.3} textColor="white">
               Data Masking
             </Heading>
@@ -397,8 +437,8 @@ export default class Presentation extends React.Component {
               </div>
               <Fill>
                 <List>
-                  <MyListItem>Avoid N+1 Query</MyListItem>
-                  <MyListItem>Single Network Request</MyListItem>
+                  <MyListItem>Avoid <S type="bold">N+1</S> Query</MyListItem>
+                  <MyListItem><S type="bold">Single</S> Network Request</MyListItem>
                   <MyListItem>Diff with Cache</MyListItem>
                 </List>
               </Fill>
@@ -433,48 +473,20 @@ export default class Presentation extends React.Component {
               Default Network Layer
             </Heading>
             <List>
-              <Appear><MyListItem>Fail requests after a 15 second timeout</MyListItem></Appear>
-              <Appear><MyListItem>failed requests are automatically retried twice</MyListItem></Appear>
+              <Appear><MyListItem>Fail requests after a <S type="bold">15 second</S> timeout</MyListItem></Appear>
+              <Appear><MyListItem>failed requests are automatically retried <S type="bold">twice</S></MyListItem></Appear>
             </List>
           </Slide>
 
           <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
-            <Heading size={1} lineHeight={1.3} textColor="white">
+            <Heading size={2} lineHeight={1.3} textColor="white">
               Works on React Native!
             </Heading>
-            {/* rn image */}
+            <Image src={images.rn.replace("/", "")} width="720px" margin="0 auto" />
           </Slide>
 
-          <CodeSlide
-            transition={[]}
-            lang="js"
-            code={require("raw!../assets/codes/relay-simple-schema.example")}
-            ranges={[
-              { loc: [32, 43], title: "GraphQL Schema" },
-              { loc: [25, 31], note: "Store Type" },
-              { loc: [17, 24], note: "Tea Type" },
-              { loc: [9, 16], note: "Store data" },
-              { loc: [35, 41], note: "Store Resolving function" }
-            ]}
-          />
-
-          <CodeSlide
-            transition={[]}
-            lang="js"
-            code={require("raw!../assets/codes/relay-simple.example")}
-            ranges={[
-              { loc: [0, 1], title: "Relay Frontend" },
-              { loc: [2, 12], note: "Plain Tea React Component" },
-              { loc: [12, 22], note: "Data requirement for Tea Component" },
-              { loc: [23, 32], note: "Plain TeaStore React Component" },
-              { loc: [32, 41], note: "Data requirement for TeaStore Component" },
-              { loc: [42, 52], note: "Top Level Query Root" },
-              { loc: [54, 60], note: "Render RootContainer" }
-            ]}
-          />
-
           <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
-            <Heading size={6} lineHeight={1.3} textColor="white">
+            <Heading size={2} lineHeight={1.3} textColor="white">
               <Link target="_blank" href="http://facebook.github.io/relay/prototyping/playground.html#/">Demo</Link>
             </Heading>
           </Slide>
@@ -494,7 +506,13 @@ export default class Presentation extends React.Component {
                 <Link target="_blank" href="https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png">GraphQL Cheat Sheet</Link>
               </MyListItem>
               <MyListItem>
-                <Link target="_blank" href="https://github.com/chentsulin/graphql.github.io">GraphQL 繁中文件</Link>
+                <Link target="_blank" href="http://facebook.github.io/relay/prototyping/playground.html">Relay Playground</Link>
+              </MyListItem>
+              <MyListItem>
+                <Link target="_blank" href="http://sgwilym.github.io/relay-visual-learners/">Relay for visual learners</Link>
+              </MyListItem>
+              <MyListItem>
+              <Link target="_blank" href="https://github.com/chentsulin/graphql.github.io">GraphQL 繁中文件</Link> (thanks to <Link target="_blank" href="https://github.com/neighborhood999">neighborhood999</Link>)
               </MyListItem>
               <MyListItem>
                 <Link target="_blank" href="https://github.com/chentsulin/relay">Relay 繁中文件</Link>
