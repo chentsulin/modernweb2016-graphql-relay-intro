@@ -393,12 +393,6 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
-            <Heading size={2} fit lineHeight={1.3} textColor="white">
-              Walkthrough Simple Example
-            </Heading>
-          </Slide>
-
-          <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
             <Heading size={5} lineHeight={1.3} textColor="white">
               Data Requirement
             </Heading>
@@ -424,6 +418,12 @@ export default class Presentation extends React.Component {
               Data Masking
             </Heading>
             <Image src={images.masking.replace("/", "")} margin="0px auto 40px" width="800px" />
+          </Slide>
+
+          <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
+            <Heading size={2} fit lineHeight={1.3} textColor="white">
+              Walkthrough Simple Example
+            </Heading>
           </Slide>
 
           <CodeSlide
