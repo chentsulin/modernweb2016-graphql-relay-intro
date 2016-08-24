@@ -12,7 +12,6 @@ import {
   Image,
   Layout,
   Link,
-  ListItem,
   List,
   Slide,
   Spectacle,
@@ -50,7 +49,7 @@ const images = {
 preloader(images);
 
 const theme = createTheme({
-  primary: "#7688EA"
+  // primary: "#7688EA"
 });
 
 export default class Presentation extends React.Component {
