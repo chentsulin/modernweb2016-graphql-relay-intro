@@ -49,7 +49,7 @@ const images = {
 preloader(images);
 
 const theme = createTheme({
-  // primary: "#7688EA"
+  primary: "#1ca1ba"
 });
 
 export default class Presentation extends React.Component {
