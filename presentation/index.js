@@ -398,34 +398,6 @@ export default class Presentation extends React.Component {
             </Heading>
           </Slide>
 
-          <CodeSlide
-            transition={[]}
-            lang="js"
-            code={require("raw!../assets/codes/relay-simple-schema.example")}
-            ranges={[
-              { loc: [32, 43], title: "GraphQL Schema" },
-              { loc: [25, 31], note: "Store Type" },
-              { loc: [17, 24], note: "Tea Type" },
-              { loc: [9, 16], note: "Store data" },
-              { loc: [35, 41], note: "Store Resolving function" }
-            ]}
-          />
-
-          <CodeSlide
-            transition={[]}
-            lang="js"
-            code={require("raw!../assets/codes/relay-simple.example")}
-            ranges={[
-              { loc: [0, 1], title: "Relay Frontend" },
-              { loc: [2, 12], note: "Plain Tea React Component" },
-              { loc: [12, 22], note: "Data requirement for Tea Component" },
-              { loc: [23, 32], note: "Plain TeaStore React Component" },
-              { loc: [32, 41], note: "Data requirement for TeaStore Component" },
-              { loc: [42, 52], note: "Top Level Query Root" },
-              { loc: [54, 60], note: "Render RootContainer" }
-            ]}
-          />
-
           <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
             <Heading size={5} lineHeight={1.3} textColor="white">
               Data Requirement
@@ -453,6 +425,34 @@ export default class Presentation extends React.Component {
             </Heading>
             <Image src={images.masking.replace("/", "")} margin="0px auto 40px" width="800px" />
           </Slide>
+
+          <CodeSlide
+            transition={[]}
+            lang="js"
+            code={require("raw!../assets/codes/relay-simple-schema.example")}
+            ranges={[
+              { loc: [32, 43], title: "GraphQL Schema" },
+              { loc: [25, 31], note: "Store Type" },
+              { loc: [17, 24], note: "Tea Type" },
+              { loc: [9, 16], note: "Store data" },
+              { loc: [35, 41], note: "Store Resolving function" }
+            ]}
+          />
+
+          <CodeSlide
+            transition={[]}
+            lang="js"
+            code={require("raw!../assets/codes/relay-simple.example")}
+            ranges={[
+              { loc: [0, 1], title: "Relay Frontend" },
+              { loc: [2, 12], note: "Plain Tea React Component" },
+              { loc: [12, 22], note: "Data requirement for Tea Component" },
+              { loc: [23, 32], note: "Plain TeaStore React Component" },
+              { loc: [32, 41], note: "Data requirement for TeaStore Component" },
+              { loc: [42, 52], note: "Top Level Query Root" },
+              { loc: [54, 60], note: "Render RootContainer" }
+            ]}
+          />
 
           <Slide transition={["zoom"]} bgImage={images.bg2.replace("/", "")}>
             <Heading size={5} lineHeight={1.3} textColor="white">
